@@ -1,0 +1,13 @@
+﻿
+@{
+}
+@model Bowler
+
+<h2>Confirm Deletion</h2>
+<h3>Are you sure you want to delete record for "@Model.BowlerFirstName @Model.BowlerLastName"</h3>
+<form method="post">
+    <button type="submit" class="btn btn-secondary">Delete</button>
+    <a asp-controller="Home" asp-action="ShowBowler" class="btn btn-primary">Cancel</a>
+
+    <input type="hidden" asp-for="BowlerId" />
+</form>
