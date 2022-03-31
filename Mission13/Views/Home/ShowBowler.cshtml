@@ -4,43 +4,58 @@
 
 @model List<Bowler>
 
-<table class="table table-bordered table-striped">
+@if(ViewBag.Team)
 
-    <thead class="font-weight-bold">
-        <tr>
-            <td>First Name</td>
-            <td>M</td>
-            <td>Last Name</td>
-            <td>Streed</td>
-            <td>City</td>
-            <td>State</td>
-            <td>Zip Code</td>
-            <td>Phone Number</td>
-            <td>Team</td>
-        </tr>
-    </thead>
+<div class="row m-1 p-1">
 
-    <tbody>
+    <div id="types" class="col-2">
+        <vc:teams></vc:teams>
+    </div>
 
-        @foreach (var x in Model)
-        {
-            <tr>
-                <td>@x.BowlerFirstName</td>
-                <td>@x.BowlerMiddleInit</td>
-                <td>@x.BowlerLastName</td>
-                <td>@x.BowlerAddress</td>
-                <td>@x.BowlerCity</td>
-                <td>@x.BowlerState</td>
-                <td>@x.BowlerZip</td>
-                <td>@x.BowlerPhoneNumber</td>
-                <td>@x.Teams.TeamName</td>
+    <div id="types" class="col-10">
+        <div>
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="font-weight-bold">
+                    <tr>
+                        <td>First Name</td>
+                        <td>M</td>
+                        <td>Last Name</td>
+                        <td>Street</td>
+                        <td>City</td>
+                        <td>State</td>
+                        <td>Zip Code</td>
+                        <td>Phone Number</td>
+                        <td>Team</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.BowlerFirstName</td>
+                            <td>@x.BowlerMiddleInit</td>
+                            <td>@x.BowlerLastName</td>
+                            <td>@x.BowlerAddress</td>
+                            <td>@x.BowlerCity</td>
+                            <td>@x.BowlerState</td>
+                            <td>@x.BowlerZip</td>
+                            <td>@x.BowlerPhoneNumber</td>
+                            <td>@x.Teams.TeamName</td>
 
 
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@x.BowlerId">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@x.BowlerId">Delete</a></td>
-            </tr>
-        }
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@x.BowlerId">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@x.BowlerId">Delete</a></td>
+                        </tr>
+                    }
 
-    </tbody>
+                </tbody>
 
-</table>
+            </table>
+
+        </div>
+    </div>
+</div>

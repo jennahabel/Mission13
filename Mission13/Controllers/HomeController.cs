@@ -34,11 +34,12 @@ namespace Mission13.Controllers
         }
 
 //----------------------------List of Bowlers-----------------------------------
-        public IActionResult ShowBowler()
+        public IActionResult ShowBowler(string teamName)
         {
-                                                                    //var player = _repo.Bowlers.ToList();
+                                                                              //var player = _repo.Bowlers.ToList();
             var bowler = _context.Bowlers
                 .Include(x => x.Teams)
+                .Where(x => x.Teams.TeamName == teamName || teamName == null)
                 .OrderBy(x => x.BowlerFirstName)
                 .ToList();
 
