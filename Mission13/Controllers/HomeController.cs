@@ -21,19 +21,19 @@ namespace Mission13.Controllers
         private BowlersDbContext _context { get; set; }
 
 
-        //Constructor
+//--------------------------------Constructor-----------------------------------
         public HomeController(BowlersDbContext temp)
         {
             _context = temp;
         }
 
-        //Index Page
+//--------------------------------Index Page------------------------------------
         public IActionResult Index()
         {
             return View();
         }
 
-        //List of Bowlers
+//----------------------------List of Bowlers-----------------------------------
         public IActionResult ShowBowler()
         {
                                                                     //var player = _repo.Bowlers.ToList();
@@ -45,7 +45,7 @@ namespace Mission13.Controllers
             return View(bowler);
         }
 
-        //Add a Bowler
+//------------------------------Add a Bowler -----------------------------------
         [HttpGet]
         public IActionResult AddBowler()
         {
@@ -73,7 +73,7 @@ namespace Mission13.Controllers
             
         }
 
-        //Edit a Bowler
+//------------------------------Edit a Bowler-----------------------------------
         public IActionResult Edit(int bowlerid)
         {
             ViewBag.Team = _context.Teams.ToList();
@@ -93,7 +93,7 @@ namespace Mission13.Controllers
         }
 
 
-        //Delete a Bowler
+//----------------------------Delete a Bowler-----------------------------------
         [HttpGet]
         public IActionResult Delete(int bowlerid)
         {
